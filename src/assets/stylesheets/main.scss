@@ -1,0 +1,36 @@
+//************************************************************************//
+//
+// BOWER @IMPORTS
+//
+//************************************************************************//
+
+//************************************************************************//
+//
+// NON-BOWER @IMPORTS
+//
+// 1. Settings & Variables
+//    - Baseline Grid/Fonts/Typography
+//    - Global Variables
+// 2. Utilities
+// 3. Mixins
+// 4. Global Shared Styles
+// 5. Components
+//    - Navigation
+//
+//************************************************************************//
+
+//settings & variables
+@import "partials/settings/fonts_and_type/type_sassline";
+@import "partials/settings/global_vars";
+
+//utilities
+// TODO: add utilities
+
+//mixins
+// TODO: add utilities
+
+//global shared styles
+@import "partials/shared";
+
+//components
+@import "partials/components/slider";
