@@ -1,0 +1,41 @@
+.container
+  div(ng-include="'components/navbar/navbar.html'")
+  .jumbotron
+    h1 "Allo, "Allo!
+    p.lead
+      img(src="assets/images/yeoman.png", alt="I'm Yeoman")
+      br
+      | Always a pleasure scaffolding your apps.
+    p
+      a.btn(ng-href="#") Splendid!
+
+  hr
+  .well
+    h4 Dynamic
+    slider(ng-model="slider3.val", min="slider3.min", max="slider3.max", step="slider3.step")
+    br
+    | Value: {{slider3.val}}
+    br
+    hr
+    br
+    | Min: {{slider3.min}}
+    br
+    slider(ng-model="slider3.min", min="-50", max="0", step="1")
+    br
+    br
+    | Max: {{slider3.max}}
+    br
+    slider(ng-model="slider3.max", min="10", max="50", step="1")
+    br
+    br
+    | Step: {{slider3.step}}
+    br
+    slider(ng-model="slider3.step", min="0.5", max="2", step="0.5")
+    br
+    br
+  hr
+  .footer
+    p
+      | With &#9829; from
+      a(href="https://twitter.com/Swiip") @Swiip
+
