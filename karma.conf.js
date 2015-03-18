@@ -1,17 +1,16 @@
 'use strict';
 
-module.exports = function(config) {
+module.exports = function (config) {
 
-  config.set({
-    autoWatch : false,
+    config.set({
+        color: true,
+        frameworks: ['jasmine'],
 
-    frameworks: ['jasmine'],
+        browsers: ['PhantomJS'],
 
-    browsers : ['PhantomJS'],
-
-    plugins : [
-        'karma-phantomjs-launcher',
-        'karma-jasmine'
-    ]
-  });
+        plugins: [
+            'karma-phantomjs-launcher',
+            'karma-jasmine'
+        ]
+    });
 };

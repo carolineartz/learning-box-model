@@ -59,7 +59,7 @@ $gutterwidths: (
 //TODO: add hosted fonts/include font files
 
 $bodytype: (
-  font-family: "'Avenir Next', AvenirNext",
+  font-family: "'Source Sans Pro','Avenir Next', AvenirNext",
   regular: 400,
   bold: 700,
   italic: italic,
@@ -67,7 +67,8 @@ $bodytype: (
 );
 
 $headingtype: (
-  font-family: "LagunaW26",
+  font-family: "'Source Sans Pro','Avenir Next', AvenirNext",
+  text-transform: uppercase,
   regular: 400,
   bold: 700,
   cap-height: 0.30
@@ -88,12 +89,12 @@ $monospacetype: (
 
 // Text colours. British English.
 $headingColor: #2E2E2E;
-$bodyColor: #494949;
+$bodyColor: #808386;
 $linkColor: #0E58F5;
 $hoverColor: #0B348B;
 $captionColor: #BDC8CC;
 $white: #FFFFFF;
 
 // Background colours.
-$backgroundColor: #FCFCFC;
-$codeBackgroundColor: #F5F4F2;
+$backgroundColor: #1b1e23;
+$codeBackgroundColor: #919497;

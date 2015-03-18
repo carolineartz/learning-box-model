@@ -1,0 +1,11 @@
+main {
+  @include outer-container;
+}
+
+.box-model {
+  @include span-columns(7);
+}
+
+.controls {
+  @include span-columns(5);
+}

@@ -15,13 +15,14 @@
 // 3. Mixins
 // 4. Global Shared Styles
 // 5. Components
-//    - Navigation
+//    - Slider
 //
 //************************************************************************//
 
 //settings & variables
 @import "partials/settings/fonts_and_type/type_sassline";
-@import "partials/settings/global_vars";
+
+// @import "partials/settings/global_vars";
 
 //utilities
 // TODO: add utilities
@@ -31,6 +32,7 @@
 
 //global shared styles
 @import "partials/shared";
+@import "layout";
 
 //components
 @import "partials/components/slider";
