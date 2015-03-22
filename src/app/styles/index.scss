@@ -1,48 +1,14 @@
-// //************************************************************************//
-// //
-// // BOWER @IMPORTS
-// //
-// //************************************************************************//
-
-// //************************************************************************//
-// //
-// // NON-BOWER @IMPORTS
-// //
-// // 1. Settings & Variables
-// //    - Baseline Grid/Fonts/Typography
-// //    - Global Variables
-// // 2. Utilities
-// // 3. Mixins
-// // 4. Global Shared Styles
-// // 5. Components
-// //    - Slider
-// //
-// //************************************************************************//
-
-// //settings & variables
-// @import "partials/settings/fonts_and_type/type_sassline";
-
-// // @import "partials/settings/global_vars";
-
-// //utilities
-// // TODO: add utilities
-
-// //mixins
-// // TODO: add utilities
-
-// //global shared styles
-// // @import "partials/shared";
-// @import "layout";
-
-// //components
-// @import "partials/components/slider";
-
 @import "../../../bower_components/bourbon/app/assets/stylesheets/bourbon";
 @import "../../../bower_components/neat/app/assets/stylesheets/neat";
 
-@import "partials/2_variables";
+@import "partials/reset";
+@import "partials/variables";
+@import "partials/modular-scale";
+@import "partials/mixins";
+@import "partials/typography";
+@import "partials/globals";
+
+@import "partials/main";
 
 // injector
 // endinjector
-
-@import "partials/0_main";

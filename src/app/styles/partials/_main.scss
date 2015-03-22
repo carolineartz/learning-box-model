@@ -92,7 +92,7 @@ $color-track: #343434;
 }
 
 slider, [slider] {
-  width: 60%;
+  // width: 60%;
 }
 
 #padding-v::before {
@@ -179,9 +179,17 @@ slider, [slider] {
   display: inline-block;
   position: relative;
   height: 7px;
-  width: 100%;
-  margin: 25px 5px 25px 5px;
+  width: 60%;
   vertical-align: middle;
+  margin: 5px;
+  div.handle {
+    background-color: $backgroundColor;
+    border: 3px solid;
+    top: -7px;
+    &::after {
+      background-color: transparent;
+    }
+  }
 }
 
 /* line 10, slider.scss */
@@ -203,7 +211,7 @@ slider div.bar, [slider] div.bar {
 slider div.bar .selection, [slider] div.bar .selection {
   width: 0%;
   height: 100%;
-  background: #13b6ff;
+  // background: #13b6ff;
 }
 
 /* line 28, slider.scss */
@@ -212,8 +220,8 @@ slider div.handle, [slider] div.handle {
   width: 20px;
   height: 20px;
   top: -8px;
-  background-color: #fff;
-  border: 1px solid #000;
+  background-color: $backgroundColor;
+  // border: 1px solid #000;
   z-index: 2;
   border-radius: 100%;
 }
@@ -221,23 +229,23 @@ slider div.handle, [slider] div.handle {
 /* line 38, slider.scss */
 slider div.handle:after, [slider] div.handle:after {
   content: '';
-  background-color: #777;
+  // background-color: #777;
   width: 8px;
   height: 8px;
   position: absolute;
-  top: 6px;
+  // top: 6px;
   left: 6px;
   border-radius: 100%;
 }
 
 /* line 48, slider.scss */
 slider div.handle:after:hover, [slider] div.handle:after:hover {
-  background-color: #000;
+  // background-color: #000;
 }
 
 /* line 53, slider.scss */
 slider div.handle.active:after, [slider] div.handle.active:after {
-  background-color: #f00;
+  // background-color: #f00;
 }
 
 /* line 58, slider.scss */
@@ -292,7 +300,6 @@ main {
 }
 
 #diagram {
-  // margin-top: 30px;
   margin-left: 5px;
   clear: left;
   padding-top: $gutter;
@@ -353,8 +360,6 @@ label, .value {
   display: inline-block;
   white-space: nowrap;
   font-family: unquote(map-get($bodytype, font-family));
-  // font-family: 'Source Sans Pro','Avenir Next', AvenirNext;
-  // font-weight: 400;
   letter-spacing: 1.5px;
 }
 
@@ -432,8 +437,6 @@ $color_cornflower_approx: #9fc4e7;
   position: absolute;
   left: -0.5em;
   width: 100%;
-  // color: white;
-  // color: $black_60;
   font-size: 0.75em;
 }
 
@@ -445,8 +448,6 @@ $color_cornflower_approx: #9fc4e7;
   margin-top: -0.65em;
   width: 2em;
   height: 100%;
-  // color: $color_mountain_mist_approx;
-  // color: $black_60;
   font-size: 0.75em;
   text-align: center;
 }
@@ -602,17 +603,7 @@ h2 {
   }
 }
 
-slider, [slider] {
-  margin: 5px;
-  div.handle {
-    background-color: $backgroundColor;
-    border: 3px solid;
-    top: -7px;
-    &::after {
-      background-color: transparent;
-    }
-  }
-}
+slider, [slider] {}
 
 // slider div.handle,
 // [slider] div.handle {

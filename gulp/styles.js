@@ -16,7 +16,7 @@ gulp.task('styles', function () {
     paths.src + '/app/styles/**/*.scss',
     '!' + paths.src + '/app/styles/index.scss',
     '!' + paths.src + '/app/styles/vendor.scss',
-    '!' + paths.src + '/app/styles/partials/0_main'
+    '!' + paths.src + '/app/styles/partials/**/*.scss'
   ], { read: false });
 
   var injectOptions = {
