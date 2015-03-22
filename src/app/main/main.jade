@@ -11,31 +11,34 @@ main
         label
           input(type="radio", ng-model="box.sizing", value="border-box" class="radio")
           | border-box
-    div.control-set#dimensions
-      fieldset
-        legend dimensions
-        label width
-        slider(ng-model="dimensions.width" min="0" max="400" step="20")
-        div.value {{dimensions.width}}px
-        label height
-        slider(ng-model="dimensions.height" min="0" max="400" step="20")
-        div.value {{dimensions.height}}px
+
+    //- extract to mixin?
+    //- meh, maybe no
     each attr in ["padding","border","margin"]
       div.control-set(id=attr)
         fieldset
           legend= attr
-          each val in ["top", "right", "bottom", "left"]
-            label #{attr}-#{val}
-            slider(floor="0" ceiling="300" step="5" precision="1" ng-model="#{attr}.#{val}")
-
-            //- slider(ng-model="#{attr}.#{val}")
-            div.value {{#{attr}.#{val}}}px
+          .sliders
+            each val in ["top", "right", "bottom", "left"]
+              label #{attr}-#{val}
+              slider(floor="0" ceiling="300" step="5" precision="1" ng-model="#{attr}.#{val}" highlight="left")
+              div.value {{#{attr}.#{val}}}px
 
   section.box-model
-    div#dimensions
-      h2 Generated Dimensions
-      div.generated-width width: {{generatedDimensions.width}}px
-      div.generated-height height: {{generatedDimensions.height}}px
+    div.control-set#dimensions
+      fieldset
+        legend dimensions
+        label width
+        slider(floor="0" ceiling="600" step="10" precision="1" ng-model="dimensions.width" highlight="left")
+        div.value {{dimensions.width}}px
+        label height
+        slider(floor="0" ceiling="600" step="10" precision="1" ng-model="dimensions.height" highlight="left")
+        div.value {{dimensions.height}}px
+    div.control-set#generated-size
+      fieldset
+        legend Generated Size
+        div.generated-width horizontal: <span class="changes value-{{generatedDimensions.width}}">{{generatedDimensions.width}}px</span>
+        div.generated-height vertical: <span class="changes value-{{generatedDimensions.height}}">{{generatedDimensions.height}}px</span>
     div#diagram
       .box(ng-style="{'top': boxPosition.top+'px', 'left': boxPosition.left+'px', 'width': dimensions.width+'px', 'height': dimensions.height+'px'}")
         .box-margin.box-property(ng-style="{'width': styleMargin.width+'px', 'height': styleMargin.height+'px', 'top': styleMargin.top+'px', 'left': styleMargin.left+'px'}")

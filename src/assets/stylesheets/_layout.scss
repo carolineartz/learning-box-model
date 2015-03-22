@@ -4,6 +4,13 @@ main {
 
 .box-model {
   @include span-columns(7);
+  #dimensions, #generated-size {
+    @include span-columns(4 of 7);
+  }
+  #generated-size {
+    @include span-columns(3 of 7);
+    @include omega;
+  }
 }
 
 .controls {

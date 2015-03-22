@@ -7,7 +7,6 @@
     "angular-ui-router": "~0.2.13",
     "angular": "~1.3.4",
     "neat": "~1.7.2",
-    "angular-slidezilla": "~0.1.3",
     "angular-slider": "~0.2.14"
   },
   "devDependencies": {

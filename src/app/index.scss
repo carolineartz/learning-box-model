@@ -3,6 +3,20 @@
 
 @import "../assets/stylesheets/main";
 
+// $color-margin: #e65e56;
+// $color-padding: #cce327;
+// $color-content: #57bbff;
+// $color-border: #ffcd57;
+// $color-teal: #7fe5e6;
+// $color-track: #343434;
+
+$color-margin: lighten(desaturate(#e65e56, 9%), 1%);
+$color-padding: lighten(desaturate(#cce327, 9%), 1%);
+$color-content: lighten(desaturate(#57bbff, 9%), 1%);
+$color-border: lighten(desaturate(#ffcd57, 9%), 1%);
+$color-teal: lighten(desaturate(#7fe5e6, 9%), 1%);
+$color-track: #343434;
+
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
@@ -16,50 +30,96 @@ main {
 }
 
 #diagram {
-  margin-top: 75px;
-  margin-left: 50px;
+  // margin-top: 30px;
+  margin-left: 5px;
+  clear: left;
+  padding-top: $gutter;
 }
 
 fieldset {
-  border: 1px solid $bodyColor;
-  padding: 10px;
+  border: 1px solid $color-track;
+  padding: 0 10px 5px;
+}
+
+#generated-size fieldset {
+  min-height: 114px;
+}
+
+.generated-width,
+.generated-height {
+  font-size: 60%;
+  white-space: nowrap;
+  font-family: unquote(map-get($bodytype, font-family));
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  .changes {
+    text-transform: none;
+    display: inline-block;
+    line-height: 25px;
+    padding: 0 5px;
+    background: #2f353e;
+    border-radius: 3px;
+    color: $color-content;
+    @include transition(color 0.4s ease-in-out, background 0.4s ease-in-out);
+    &[class*="-add"] {
+      color: darken($color-content, 45%);
+      background: $color-content;
+    }
+    &.highlight {
+      &.ng-enter {
+        background: #2f353e;
+        color: $color-content;
+        &.ng-enter-active {
+          color: darken($color-content, 45%);
+          background: $color-content;
+        }
+      }
+      &.ng-leave {
+        color: darken($color-content, 45%);
+        background: $color-content;
+        &.ng-leave-active {
+          background: #2f353e;
+          color: $color-content;
+        }
+      }
+    }
+  }
 }
 
 label, .value {
-  font-size: 80%;
+  font-size: 60%;
   display: inline-block;
-  font-family: unquote(map-get($monospacetype, font-family));
+  white-space: nowrap;
+  font-family: unquote(map-get($bodytype, font-family));
+  // font-family: 'Source Sans Pro','Avenir Next', AvenirNext;
+  // font-weight: 400;
+  letter-spacing: 1.5px;
 }
 
 .control-set {
-  clear: both;
+  clear: right;
   width: 100%;
   label {
-    width: 30%;
+    width: 25%;
+    text-transform: uppercase;
   }
   .slider {
     width: 55%;
   }
   .value {
     width: 10%;
-    float: right;
+    text-align: right;
   }
 }
 
 .box-property {
-  @include transition(all 0.3s linear);
+  @include transition(width 0.3s linear, height 0.3s linear);
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
 }
-
-$color-margin: #e65e56;
-$color-padding: #cce327;
-$color-content: #57bbff;
-$color-border: #ffcd57;
-$color-teal: #7fe5e6;
 
 .box-margin {
   background: $color-margin;
@@ -262,7 +322,7 @@ $color_cornflower_approx: #9fc4e7;
 legend, h2 {
   text-transform: uppercase;
   font-weight: 300;
-  color: #57bbff;
+  color: $color-content;
   font-size: 1.3em;
   &#bs {
     color: $color-teal;
@@ -274,18 +334,45 @@ h2 {
 }
 
 #dimensions {
-  margin-top: 22px;
+  margin-top: 20px;
   > div {
     font-family: unquote(map-get($monospacetype, font-family));
   }
+}
+
+slider, [slider] {
+  margin: 5px;
+  div.handle {
+    background-color: $backgroundColor;
+    border: 3px solid;
+    top: -7px;
+    &::after {
+      background-color: transparent;
+    }
+  }
+}
+
+// slider div.handle,
+// [slider] div.handle {
+
+// }
+
+.bar-color {
+  height: 20px;
+  border-right: 3px solid;
+  box-sizing: content-box;
 }
 
 #margin {
   legend {
     color: $color-margin;
   }
-  .slider-selection {
+  .slider-selection, .bar-color {
     background-color: $color-margin;
+  }
+  .bar-color,
+  .handle {
+    border-color: $color-margin;
   }
 }
 
@@ -299,8 +386,13 @@ h2 {
   legend {
     color: $color-padding;
   }
-  .slider-selection {
+  .slider-selection, .bar-color {
     background-color: $color-padding;
+  }
+  .bar-color,
+  slider div.handle,
+  [slider] div.handle {
+    border-color: $color-padding;
   }
 }
 
@@ -314,8 +406,11 @@ h2 {
   legend {
     color: $color-border;
   }
-  .slider-selection {
+  .slider-selection, .bar-color {
     background-color: $color-border;
+  }
+  .bar-color, .handle {
+    border-color: $color-border;
   }
 }
 
@@ -329,8 +424,11 @@ h2 {
   legend {
     color: $color-content;
   }
-  .slider-selection {
+  .slider-selection, .bar-color {
     background-color: $color-content;
+  }
+  .bar-color, .handle {
+    border-color: $color-content;
   }
 }
 
@@ -338,20 +436,8 @@ h2 {
   margin-top: 20px;
 }
 
-.slider-track {
-  height: 15px !important;
-  border-radius: 8px !important;
-}
-
-.slider-selection {
-  box-shadow: none;
-}
-
-.slider-handle.round {
-  height: 15px;
-  width: 15px;
-  margin-top: 0px !important;
-  left: -10px;
+slider, [slider] {
+  width: 60%;
 }
 
 #padding-v::before {
@@ -362,29 +448,35 @@ h2 {
   position: relative;
   margin: 0 .5rem 0 0;
   cursor: pointer;
-  &:before,
-  &:after {
+  &::before,
+  &::after {
     @include transition(all 0.3s ease-in-out);
     content: "";
     position: absolute;
-    top: rem(-2);
-    left: rem(-2);
+    top: -0.2rem;
+    left: -0.2rem;
     z-index: 1;
-    width: 1rem;
-    height: 1rem;
-    background: #fff;
+    width: 20px;
+    height: 20px;
+    background: $color-track;
     border-radius: 50%;
   }
-  &:after {
+  &::after {
     // top: rem(-4);
     // left: rem(-4);
     z-index: 0;
-    width: rem(15);
-    height: rem(15);
-    background: $color-teal;
+    width: 20px;
+    height: 20px;
+    background: $color-track;
+  }
+  &:checked, &.ng-valid-parse {
+    &::after {
+      border: 3px solid $color-teal;
+      background: $backgroundColor;
+    }
   }
   &:checked {
-    &:before {
+    &::before {
       @include transform(scale(0, 0));
       border-color: $color-teal;
       border-width: rem(10);
@@ -415,6 +507,14 @@ h2 {
     float: left;
     top: 0;
   }
+}
+
+slider div.handle.active:after, [slider] div.handle.active:after {
+  background-color: transparent;
+}
+
+.bubble.value.low.ng-binding.active {
+  display: none;
 }
 
 // injector

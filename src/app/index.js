@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('cssBoxModel', ['ngAnimate', 'ngSanitize', 'ui.router', 'angular-slidezilla', 'ui.slider'])
+angular.module('cssBoxModel', ['ngAnimate', 'ngSanitize', 'ui.router','ui.slider'])
 
 .config(function($stateProvider, $urlRouterProvider) {
     $stateProvider

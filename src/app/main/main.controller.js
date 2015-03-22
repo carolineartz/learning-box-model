@@ -28,18 +28,18 @@ angular.module('cssBoxModel')
             sizing: "content-box"
         }
         $scope.dimensions = {
-            width: 300,
-            height: 300
+            width: 220,
+            height: 220
         }
 
         $scope.innerContent = {
-            width: 300,
-            height: 300
+            width: 220,
+            height: 220
         }
 
         $scope.generatedDimensions = {
-            width: 370,
-            height: 370
+            width: 330,
+            height: 330
         }
 
 
@@ -168,7 +168,7 @@ angular.module('cssBoxModel')
                     $scope.padding.top -
                     $scope.padding.bottom);
             } else {
-                return $scope.dimensions.width;
+                return $scope.dimensions.height;
             }
         }
 
