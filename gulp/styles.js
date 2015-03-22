@@ -13,15 +13,16 @@ gulp.task('styles', function () {
   };
 
   var injectFiles = gulp.src([
-    paths.src + '/{app,components}/**/*.scss',
-    '!' + paths.src + '/app/index.scss',
-    '!' + paths.src + '/app/vendor.scss'
+    paths.src + '/app/styles/**/*.scss',
+    '!' + paths.src + '/app/styles/index.scss',
+    '!' + paths.src + '/app/styles/vendor.scss',
+    '!' + paths.src + '/app/styles/partials/0_main'
   ], { read: false });
 
   var injectOptions = {
     transform: function(filePath) {
-      filePath = filePath.replace(paths.src + '/app/', '');
-      filePath = filePath.replace(paths.src + '/components/', '../components/');
+      filePath = filePath.replace(paths.src + '/app/styles/', '');
+      // filePath = filePath.replace(paths.src + '/components/', '../components/');
       return '@import \'' + filePath + '\';';
     },
     starttag: '// injector',
@@ -32,8 +33,8 @@ gulp.task('styles', function () {
   var indexFilter = $.filter('index.scss');
 
   return gulp.src([
-    paths.src + '/app/index.scss',
-    paths.src + '/app/vendor.scss'
+    paths.src + '/app/styles/index.scss',
+    paths.src + '/app/styles/vendor.scss'
   ])
     .pipe(indexFilter)
     .pipe($.inject(injectFiles, injectOptions))

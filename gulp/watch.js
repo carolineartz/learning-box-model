@@ -7,9 +7,9 @@ var paths = gulp.paths;
 gulp.task('watch', ['markups', 'inject'], function () {
     gulp.watch([
         paths.src + '/*.html',
-        paths.src + '/{app,assets,components}/**/*.scss',
-        paths.src + '/{app,components}/**/*.js',
+        paths.src + '/app/styles/**/*.scss',
+        paths.src + '/app/**/*.js',
         'bower.json'
     ], ['inject']);
-    gulp.watch(paths.src + '/{app,components}/**/*.jade', ['markups']);
+    gulp.watch(paths.src + '/app/main/**/*.jade', ['markups']);
 });

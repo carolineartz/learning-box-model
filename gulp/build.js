@@ -10,8 +10,8 @@ var $ = require('gulp-load-plugins')({
 
 gulp.task('partials', ['markups'], function () {
   return gulp.src([
-    paths.src + '/{app,components}/**/*.html',
-    paths.tmp + '/{app,components}/**/*.html'
+    paths.src + '/app/**/*.html',
+    paths.tmp + '/app/**/*.html'
   ])
     .pipe($.minifyHtml({
       empty: true,
@@ -62,10 +62,10 @@ gulp.task('html', ['inject', 'partials'], function () {
     .pipe($.size({ title: paths.dist + '/', showFiles: true }));
 });
 
-gulp.task('images', function () {
-  return gulp.src(paths.src + '/assets/images/**/*')
-    .pipe(gulp.dest(paths.dist + '/assets/images/'));
-});
+// gulp.task('images', function () {
+//   return gulp.src(paths.src + '/assets/images/**/*')
+//     .pipe(gulp.dest(paths.dist + '/assets/images/'));
+// });
 
 gulp.task('fonts', function () {
   return gulp.src($.mainBowerFiles())
@@ -83,4 +83,5 @@ gulp.task('clean', function (done) {
   $.del([paths.dist + '/', paths.tmp + '/'], done);
 });
 
-gulp.task('build', ['html', 'images', 'fonts', 'misc']);
+//removed images b/c have none currently
+gulp.task('build', ['html', 'fonts', 'misc']);
