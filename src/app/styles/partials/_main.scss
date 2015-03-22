@@ -1,16 +1,12 @@
-// $color-margin: #e65e56;
-// $color-padding: #cce327;
-// $color-content: #57bbff;
-// $color-border: #ffcd57;
-// $color-teal: #7fe5e6;
-// $color-track: #343434;
+$color-margin: #DE6A63;
+$color-padding: #C5D936;
+$color-content: #63BCF8;
+$color-border: #F8CC63;
+$color-box-sizing: #8ADFE0;
 
-$color-margin: lighten(desaturate(#e65e56, 9%), 1%);
-$color-padding: lighten(desaturate(#cce327, 9%), 1%);
-$color-content: lighten(desaturate(#57bbff, 9%), 1%);
-$color-border: lighten(desaturate(#ffcd57, 9%), 1%);
-$color-teal: lighten(desaturate(#7fe5e6, 9%), 1%);
-$color-track: #343434;
+$color-dark-light: #343434;
+$color-dark-lighter: #444;
+$color-dark-lightest: #777;
 
 .bar-color {
   height: 20px;
@@ -91,10 +87,6 @@ $color-track: #343434;
   margin-top: 20px;
 }
 
-slider, [slider] {
-  // width: 60%;
-}
-
 #padding-v::before {
   top: -8px;
 }
@@ -113,27 +105,25 @@ slider, [slider] {
     z-index: 1;
     width: 20px;
     height: 20px;
-    background: $color-track;
+    background: $color-dark-light;
     border-radius: 50%;
   }
   &::after {
-    // top: rem(-4);
-    // left: rem(-4);
     z-index: 0;
     width: 20px;
     height: 20px;
-    background: $color-track;
+    background: $color-dark-light;
   }
   &:checked, &.ng-valid-parse {
     &::after {
-      border: 3px solid $color-teal;
+      border: 3px solid $color-box-sizing;
       background: $backgroundColor;
     }
   }
   &:checked {
     &::before {
       @include transform(scale(0, 0));
-      border-color: $color-teal;
+      border-color: $color-box-sizing;
       border-width: rem(10);
     }
   }
@@ -164,17 +154,6 @@ slider, [slider] {
   }
 }
 
-slider div.handle.active:after, [slider] div.handle.active:after {
-  background-color: transparent;
-}
-
-.bubble.value.low.ng-binding.active {
-  display: none;
-}
-
-// ****************************************************************
-
-/* line 2, slider.scss */
 slider, [slider] {
   display: inline-block;
   position: relative;
@@ -182,90 +161,60 @@ slider, [slider] {
   width: 60%;
   vertical-align: middle;
   margin: 5px;
-  div.handle {
-    background-color: $backgroundColor;
-    border: 3px solid;
-    top: -7px;
-    &::after {
-      background-color: transparent;
+  div {
+    white-space: nowrap;
+    position: absolute;
+    &.handle {
+      border: 3px solid;
+      cursor: pointer;
+      width: 20px;
+      height: 20px;
+      top: -8px;
+      background-color: $backgroundColor;
+      z-index: 2;
+      border-radius: 100%;
+      &::after {
+        content: '';
+        width: 8px;
+        height: 8px;
+        position: absolute;
+        left: 6px;
+        border-radius: 100%;
+        background-color: transparent;
+      }
+      &.active::after {
+        background-color: transparent;
+      }
+    }
+    &.bar {
+      width: 100%;
+      height: 100%;
+      border-radius: 7px;
+      background: $color-dark-lighter;
+      overflow: hidden;
+      .selection {
+        width: 0;
+        height: 100%;
+      }
+    }
+    &.bubble {
+      display: none;
+      cursor: default;
+      top: -22px;
+      padding: 1px 3px;
+      font-size: 0.7em;
+      &.active {
+        display: inline-block;
+      }
+      &.limit {
+        color: $color-dark-lightest;
+      }
     }
   }
 }
 
-/* line 10, slider.scss */
-slider div, [slider] div {
-  white-space: nowrap;
-  position: absolute;
-}
-
-/* line 14, slider.scss */
-slider div.bar, [slider] div.bar {
-  width: 100%;
-  height: 100%;
-  border-radius: 7px;
-  background: #444;
-  overflow: hidden;
-}
-
-/* line 21, slider.scss */
-slider div.bar .selection, [slider] div.bar .selection {
-  width: 0%;
-  height: 100%;
-  // background: #13b6ff;
-}
-
-/* line 28, slider.scss */
-slider div.handle, [slider] div.handle {
-  cursor: pointer;
-  width: 20px;
-  height: 20px;
-  top: -8px;
-  background-color: $backgroundColor;
-  // border: 1px solid #000;
-  z-index: 2;
-  border-radius: 100%;
-}
-
-/* line 38, slider.scss */
-slider div.handle:after, [slider] div.handle:after {
-  content: '';
-  // background-color: #777;
-  width: 8px;
-  height: 8px;
-  position: absolute;
-  // top: 6px;
-  left: 6px;
-  border-radius: 100%;
-}
-
-/* line 48, slider.scss */
-slider div.handle:after:hover, [slider] div.handle:after:hover {
-  // background-color: #000;
-}
-
-/* line 53, slider.scss */
-slider div.handle.active:after, [slider] div.handle.active:after {
-  // background-color: #f00;
-}
-
-/* line 58, slider.scss */
-slider div.bubble, [slider] div.bubble {
+.bubble.value.low.ng-binding.active {
   display: none;
-  cursor: default;
-  top: -22px;
-  padding: 1px 3px 1px 3px;
-  font-size: 0.7em;
-  font-family: sans-serif;
-}
-
-/* line 66, slider.scss */
-slider div.bubble.active, [slider] div.bubble.active {
-  display: inline-block;
-}
-
-/* line 70, slider.scss */
-slider div.bubble.limit, [slider] div.bubble.limit {
-  color: #777;
 }
 
 .browsehappy {
@@ -306,7 +255,7 @@ main {
 }
 
 fieldset {
-  border: 1px solid $color-track;
+  border: 1px solid $color-dark-light;
   padding: 0 10px 5px;
 }
 
@@ -588,12 +537,12 @@ legend, h2 {
   color: $color-content;
   font-size: 1.3em;
   &#bs {
-    color: $color-teal;
+    color: $color-box-sizing;
   }
 }
 
 h2 {
-  color: $color-teal;
+  color: $color-box-sizing;
 }
 
 #dimensions {
@@ -602,10 +551,3 @@ h2 {
     font-family: unquote(map-get($monospacetype, font-family));
   }
 }
-
-slider, [slider] {}
-
-// slider div.handle,
-// [slider] div.handle {
-
-// }
