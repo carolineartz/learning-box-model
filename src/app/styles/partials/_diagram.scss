@@ -1,0 +1,155 @@
+$color-margin: #DE6A63;
+$color-padding: #C5D936;
+$color-content: #63BCF8;
+$color-border: #F8CC63;
+$color-box-sizing: #8ADFE0;
+
+$color-bg: #242930;
+$color-dark-light: #343434;
+$color-dark-lighter: #444;
+$color-dark-lightest: #777;
+$color-body: #808386;
+$color-white: #FFFFFF;
+
+
+$knob-size: 20px;
+$knob-border-width: 3px;
+
+$boxes: (content: $color-content,
+         padding: $color-padding,
+         border: $color-border,
+         margin: $color-margin,
+         box-sizing: $color-box-sizing,
+         generated-size: $color-content);
+
+$sliders: content, padding, border, margin;
+
+
+/*****************************************
+* DIAGRAM STYLES
+******************************************/
+
+#diagram {
+  margin-left: 5px;
+  clear: left;
+  padding-top: $gutter;
+}
+
+.box {
+  position: relative;
+  &:hover {
+    .box-property {
+      background: $color-white;
+    }
+    .box-property-vertical,
+    .box-property-horizontal {
+      opacity: 0;
+    }
+  }
+}
+
+.box-property {
+  font-family: unquote(map-get($monospacetype, font-family));
+  @include transition(width 0.3s linear, height 0.3s linear);
+  position: absolute;
+}
+
+.box-padding {
+  @include box-styles($color-padding, dashed, true, 40%);
+}
+.box-border {
+  @include box-styles($color-border, solid, true, 50%);
+}
+.box-margin {
+  @include box-styles($color-margin, dashed, true, 60%);
+}
+
+.box-inner {
+  @include box-styles($color-content, solid);
+  text-align: center;
+  &::before {
+    color: darken($color-content, 35%);
+    content: attr(data-width) " x " attr(data-height);
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -0.5em;
+    width: 100%;
+  }
+}
+
+
+
+// Box-Property Main Labels
+// ---------------------------------------
+.property-label {
+  font-family: unquote(map-get($headingtype, font-family));
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 2px;
+  font-size: 11px;
+  top: -12px;
+  left: 5px;
+  position: relative;
+  &#property-label-padding {
+    color: darken($color-padding, 15%);
+  }
+  &#property-label-border {
+    color: darken($color-border, 28%);
+  }
+  &#property-label-margin {
+    color: darken($color-margin, 20%);
+  }
+  &#property-label-content {
+    color: darken($color-content, 20%);
+    float: left;
+    top: 0;
+  }
+}
+
+#padding-v::before {
+  top: -8px;
+}
+
+%box-property-position {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2000;
+  &::before, &::after {
+    position: absolute;
+    font-size: 0.75em;
+    text-align: center;
+  }
+}
+
+%property-vertical {
+  left: -0.5em;
+  width: 100%;
+}
+
+%property-horizontal {
+  margin-top: -0.65em;
+  width: 2em;
+  height: 100%;
+}
+
+$properties: zip(vertical horizontal, height width, top left, bottom right, -0.5em -1em);
+
+@each $direction, $dimension, $offset-before, $offset-after, $amount in $properties {
+  .box-property-#{$direction} {
+     @extend %box-property-position;
+    #{$dimension}: 100%;
+    &::before {
+      content:attr(data-#{$offset-before});
+      @extend %property-#{$direction};
+      #{$offset-before}: $amount;
+    }
+    &::after {
+      content: attr(data-#{$offset-after});
+      @extend %property-#{$direction};
+      #{$offset-after}: $amount;
+    }
+  }
+}
+

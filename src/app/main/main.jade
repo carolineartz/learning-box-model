@@ -25,9 +25,9 @@ main
               div.value {{#{attr}.#{val}}}px
 
   section.box-model
-    div.control-set#dimensions
+    div.control-set#content
       fieldset
-        legend dimensions
+        legend content
         label width
         slider(floor="0" ceiling="600" step="10" precision="1" ng-model="dimensions.width" highlight="left")
         div.value {{dimensions.width}}px
@@ -37,24 +37,24 @@ main
     div.control-set#generated-size
       fieldset
         legend Generated Size
-        div.generated-width horizontal: <span class="changes value-{{generatedDimensions.width}}">{{generatedDimensions.width}}px</span>
-        div.generated-height vertical: <span class="changes value-{{generatedDimensions.height}}">{{generatedDimensions.height}}px</span>
+        div.generated-width <span class="generated-direction">horizontal:</span> <span class="changes value-{{generatedDimensions.width}}">{{generatedDimensions.width}}px</span>
+        div.generated-height <span class="generated-direction">vertical:</span> <span class="changes value-{{generatedDimensions.height}}">{{generatedDimensions.height}}px</span>
     div#diagram
       .box(ng-style="{'top': boxPosition.top+'px', 'left': boxPosition.left+'px', 'width': dimensions.width+'px', 'height': dimensions.height+'px'}")
         .box-margin.box-property(ng-style="{'width': styleMargin.width+'px', 'height': styleMargin.height+'px', 'top': styleMargin.top+'px', 'left': styleMargin.left+'px'}")
-          span.marker#marker-margin margin
+          span.property-label#property-label-margin margin
           span#margin-v.box-property-vertical(data-id="margin-v", data-top="{{margin.top}}", data-bottom="{{margin.bottom}}", label-position-top="{{margin.top}}", label-position-bottom="{{margin.bottom}}", label-position-v="")
           span#margin-h.box-property-horizontal(data-id="margin-h", data-left="{{margin.left}}", data-right="{{margin.right}}", label-position-right="{{margin.right}}", label-position-left="{{margin.left}}", label-position-h="")
         .box-border.box-property(ng-style="{'width': styleBorder.width+'px', 'height': styleBorder.height+'px', 'top': styleBorder.top+'px', 'left': styleBorder.left+'px'}")
-          span.marker#marker-border border
+          span.property-label#property-label-border border
           span#border-v.box-property-vertical(data-id="border-v", data-top="{{border.top}}", data-bottom="{{border.bottom}}", label-position-top="{{border.top}}", label-position-bottom="{{border.bottom}}", label-position-v="")
           span#border-h.box-property-horizontal(data-id="border-h", data-left="{{border.left}}", data-right="{{border.right}}", label-position-right="{{border.right}}", label-position-left="{{border.left}}", label-position-h="")
         .box-padding.box-property(ng-style="{'width': stylePadding.width+'px', 'height': stylePadding.height+'px', 'top': stylePadding.top+'px', 'left': stylePadding.left+'px'}")
-          span.marker#marker-padding padding
+          span.property-label#property-label-padding padding
           span#padding-v.box-property-vertical(data-id="padding-v", data-top="{{padding.top}}", data-bottom="{{padding.bottom}}", label-position-top="{{padding.top}}", label-position-bottom="{{padding.bottom}}", label-position-v="")
           span#padding-h.box-property-horizontal(data-id="padding-h", data-left="{{padding.left}}", data-right="{{padding.right}}", label-position-right="{{padding.right}}", label-position-left="{{padding.left}}", label-position-h="")
         .box-inner.box-property(ng-style="{'width': innerContent.width+'px', 'height': innerContent.height+'px'}", data-height="{{dimensions.height}}", data-width="{{dimensions.width}}")
-          span.marker#marker-content content
+          span.property-label#property-label-content content
 
 
 

@@ -3,12 +3,11 @@
 
 @import "partials/reset";
 @import "partials/variables";
-@import "partials/modular-scale";
 @import "partials/mixins";
-@import "partials/typography";
-@import "partials/globals";
 
-@import "partials/main";
+@import "partials/global_layout";
+@import "partials/controls";
+@import "partials/diagram";
 
 // injector
 // endinjector

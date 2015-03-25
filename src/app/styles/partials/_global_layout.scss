@@ -1,0 +1,60 @@
+
+.browsehappy {
+  margin: 0.2em 0;
+  background: #CCC;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+// Site-wide base styles.
+// Setting root sizes and base styles.
+html {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  @include rootsize;
+}
+
+body {
+  background-color: $color-bg;
+  color: $color-body;
+  overflow-x: hidden;
+  font-family: unquote(map-get($bodytype, font-family));
+  font-style: normal;
+  font-weight: map-get($bodytype, regular);
+  line-height: 2rem;
+  @include fontsize(zeta, all);
+}
+
+main {
+  margin: 20px auto;
+  padding: 0 20px;
+  @include outer-container;
+}
+
+.box-model {
+  @include span-columns(7);
+  #content, #generated-size {
+    @include span-columns(4 of 7);
+  }
+  #generated-size {
+    @include span-columns(3 of 7);
+    @include omega;
+  }
+}
+
+.controls {
+  @include span-columns(5);
+}
+
+.section {
+  padding: 2rem 0;
+  @include breakpoint(break-1) {
+    padding: 3rem 0;
+  }
+
+  @include breakpoint(break-2) {
+    padding: 4rem 0;
+  }
+}
+
+

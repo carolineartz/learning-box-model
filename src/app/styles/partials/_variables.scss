@@ -80,22 +80,18 @@ $monospacetype: (
   cap-height: 0.68
 );
 
-// Here are some local fonts cap-height sizes to get you started:
-// Georgia: 0.66, Times / Times New Roman: 0.65, Palatino: 0.52
-// Lucida Grande: 0.72, Helvetica: 0.65, Verdana: 0.76, Tahoma: 0.76
+// Basic Colors
+// ---------------------------------------
+$color-bg: #242930;
+$color-dark-light: #343434;
+$color-dark-lighter: #444;
+$color-dark-lightest: #777;
+$color-body: #808386;
+$color-white: #FFFFFF;
 
-// Selection of Typekit fonts cap-height sizes:
-// Proxima Nova: 0.57, Museo Slab: 0.66, JAF Facit: 0.7, Brandon Grotesque: 0.65, Clavo: 0.7, Adelle: 0.66, FF Tisa Pro: 0.82, Jubilat: 0.66, Futura PT: 0.66, Chaparral Pro: 0.5, Minion Pro: 0.66, Myriad Pro: 0.66, Adobe Caslon Pro: 0.36
 
-// Text colours. British English.
-$headingColor: #2E2E2E;
-$bodyColor: #808386;
-$linkColor: #0E58F5;
-$hoverColor: #0B348B;
-$captionColor: #BDC8CC;
-$white: #FFFFFF;
+// Modular scale
+// ---------------------------------------
 
-// Background colours.
-// $backgroundColor: #1b1e23;
-$backgroundColor: #242930;
-$codeBackgroundColor: #919497;
+// Setting responsive modular-scales. Use appropriate scales for viewport sizes.
+$modular-scale: (scale-0: (alpha: 28, beta: 25, gamma: 22.4, delta: 20, epsilon: 17.9, zeta: 16, eta: 14.3, theta: 12.8, iota: 11.5), scale-1: (alpha: 30, beta: 26.6, gamma: 24, delta: 21.3, epsilon: 19.2, zeta: 17, eta: 15.3, theta: 13.6, iota: 12.8), scale-2: (alpha: 32, beta: 28.1, gamma: 25.6, delta: 22.5, epsilon: 20.5, zeta: 18, eta: 16.3, theta: 14.4, iota: 13.1), scale-3: (alpha: 40, beta: 35.5, gamma: 30, delta: 26.7, epsilon: 22.5, zeta: 20, eta: 16.9, theta: 15, iota: 12.7), scale-4: (alpha: 50, beta: 43.9, gamma: 35.3, delta: 31.1, epsilon: 25, zeta: 22, eta: 17.6, theta: 15.6, iota: 12.5));
