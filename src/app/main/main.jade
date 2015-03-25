@@ -37,8 +37,8 @@ main
     div.control-set#generated-size
       fieldset
         legend Generated Size
-        div.generated-width <span class="generated-direction">horizontal:</span> <span class="changes value-{{generatedDimensions.width}}">{{generatedDimensions.width}}px</span>
-        div.generated-height <span class="generated-direction">vertical:</span> <span class="changes value-{{generatedDimensions.height}}">{{generatedDimensions.height}}px</span>
+        div.generated-width <span class="generated-direction">horizontal:</span> <span class="changes value-{{generatedContentBoxDimensions.width}}">{{generatedContentBoxDimensions.width}}px</span>
+        div.generated-height <span class="generated-direction">vertical:</span> <span class="changes value-{{generatedContentBoxDimensions.height}}">{{generatedContentBoxDimensions.height}}px</span>
     div#diagram
       .box(ng-style="{'top': boxPosition.top+'px', 'left': boxPosition.left+'px', 'width': dimensions.width+'px', 'height': dimensions.height+'px'}")
         .box-margin.box-property(ng-style="{'width': styleMargin.width+'px', 'height': styleMargin.height+'px', 'top': styleMargin.top+'px', 'left': styleMargin.left+'px'}")
