@@ -37,6 +37,7 @@
       .box-property-vertical,
       .box-property-horizontal {
         @extend %hover-opacity;
+        opacity: 1;
       }
     }
   }

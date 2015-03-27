@@ -42,7 +42,7 @@ angular.module('cssBoxModel', ['ngAnimate', 'ngSanitize', 'ui.router','ui.slider
                 angular.element(document).find('head').append(styleRight);
             });
             attrs.$observe('labelPositionLeft', function(value) {
-                var styleLeft = "<style> #" + id + "::before{left:" + (1*((value / 3)-6)) + "px;}</style>";
+                var styleLeft = "<style> #" + id + "::before{left:" + (1*((value / 3)-12)) + "px;}</style>";
                 angular.element(document).find('head').append(styleLeft);
             });
 

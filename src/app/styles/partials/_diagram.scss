@@ -62,6 +62,11 @@ $sliders: content, padding, border, margin;
 }
 .box-margin {
   @include box-styles($color-margin, dashed, true, 60%);
+/** To Decode this SVG image, paste the css here: www.svgeneration.com/tools/base-64-decoder */
+
+background-color: #de6a63;
+background-image:url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSc3JyBoZWlnaHQ9JzE0JyB2aWV3Qm94PScwIDAgNSAxMCc+Cgk8cmVjdCB3aWR0aD0nMTEwJScgeD0nLTUlJyB5PSctNSUnIGhlaWdodD0nMTEwJScgZmlsbD0nI2RlNmE2MycvPgoJPGxpbmUgeDE9JzcnIHkxPScxJyB4Mj0nLTInIHkyPScxMCcgc3Ryb2tlPScjZWVhYWE1JyBzdHJva2Utd2lkdGg9JzAuMjknLz4KCTxsaW5lIHgxPSc3JyB5MT0nNicgeDI9Jy0yJyB5Mj0nMTUnIHN0cm9rZT0nI2VlYWFhNScgc3Ryb2tlLXdpZHRoPScwLjI5Jy8+Cgk8bGluZSB4MT0nNycgeTE9Jy00JyB4Mj0nLTInIHkyPSc1JyBzdHJva2U9JyNlZWFhYTUnIHN0cm9rZS13aWR0aD0nMC4yOScvPgo8L3N2Zz4=');
+
 }
 
 .box-inner {
@@ -73,8 +78,10 @@ $sliders: content, padding, border, margin;
     position: absolute;
     left: 0;
     top: 50%;
-    margin-top: -0.5em;
+    margin-top: .5em;
     width: 100%;
+    font-size: .75em;
+    white-space: nowrap;
   }
 }
 
@@ -103,7 +110,7 @@ $sliders: content, padding, border, margin;
   &#property-label-content {
     color: darken($color-content, 20%);
     float: left;
-    top: 0;
+    top: -8px;
   }
 }
 

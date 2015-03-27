@@ -21,24 +21,27 @@ main
           .sliders
             each val in ["top", "right", "bottom", "left"]
               label #{attr}-#{val}
-              slider(floor="0" ceiling="300" step="5" precision="1" ng-model="#{attr}.#{val}" highlight="left")
+              slider(floor="0" ceiling="120" step="5" precision="1" ng-model="#{attr}.#{val}" highlight="left")
               div.value {{#{attr}.#{val}}}px
 
   section.box-model
     div.control-set#content
       fieldset
-        legend content
+        legend Dimensions
         label width
-        slider(floor="0" ceiling="600" step="10" precision="1" ng-model="dimensions.width" highlight="left")
+        slider(floor="0" ceiling="400" step="10" precision="1" ng-model="dimensions.width" highlight="left")
         div.value {{dimensions.width}}px
         label height
-        slider(floor="0" ceiling="600" step="10" precision="1" ng-model="dimensions.height" highlight="left")
+        slider(floor="0" ceiling="400" step="10" precision="1" ng-model="dimensions.height" highlight="left")
         div.value {{dimensions.height}}px
     div.control-set#generated-size
       fieldset
         legend Generated Size
-        div.generated-width <span class="generated-direction">horizontal:</span> <span class="changes value-{{generatedContentBoxDimensions.width}}">{{generatedContentBoxDimensions.width}}px</span>
-        div.generated-height <span class="generated-direction">vertical:</span> <span class="changes value-{{generatedContentBoxDimensions.height}}">{{generatedContentBoxDimensions.height}}px</span>
+        input#toggle-include-margin.toggle(type="checkbox", checked="", ng-model="generatedIncludeMargin", ng-change="checkIncludeMargin()")
+        label.toggle-control(for="toggle-include-margin")
+        span.toggle-text include margin
+        div.generated-width <span class="generated-direction">horizontal:</span> <span class="changes value-{{generatedBoxDimensions.width}}">{{generatedBoxDimensions.width}}px</span>
+        div.generated-height <span class="generated-direction">vertical:</span> <span class="changes value-{{generatedBoxDimensions.height}}">{{generatedBoxDimensions.height}}px</span>
     div#diagram
       .box(ng-style="{'top': boxPosition.top+'px', 'left': boxPosition.left+'px', 'width': dimensions.width+'px', 'height': dimensions.height+'px'}")
         .box-margin.box-property(ng-style="{'width': styleMargin.width+'px', 'height': styleMargin.height+'px', 'top': styleMargin.top+'px', 'left': styleMargin.left+'px'}")
@@ -53,7 +56,7 @@ main
           span.property-label#property-label-padding padding
           span#padding-v.box-property-vertical(data-id="padding-v", data-top="{{padding.top}}", data-bottom="{{padding.bottom}}", label-position-top="{{padding.top}}", label-position-bottom="{{padding.bottom}}", label-position-v="")
           span#padding-h.box-property-horizontal(data-id="padding-h", data-left="{{padding.left}}", data-right="{{padding.right}}", label-position-right="{{padding.right}}", label-position-left="{{padding.left}}", label-position-h="")
-        .box-inner.box-property(ng-style="{'width': innerContent.width+'px', 'height': innerContent.height+'px'}", data-height="{{dimensions.height}}", data-width="{{dimensions.width}}")
+        .box-inner.box-property(ng-style="{'width': innerContent.width+'px', 'height': innerContent.height+'px'}", data-height="{{innerContent.height}}", data-width="{{innerContent.width}}")
           span.property-label#property-label-content content
 
 

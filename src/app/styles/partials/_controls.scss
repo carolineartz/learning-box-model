@@ -56,7 +56,7 @@ legend {
   }
 }
 
-label, .value {
+label, .value, .toggle-text {
   font-size: 60%;
   display: inline-block;
   white-space: nowrap;
@@ -67,7 +67,7 @@ label, .value {
 .control-set {
   margin-top: 20px;
   width: 100%;
-  label {
+  label, .toggle-text {
     width: 25%;
     text-transform: uppercase;
   }
@@ -97,19 +97,19 @@ label, .value {
     z-index: 1;
     width: $knob-size;
     height: $knob-size;
-    background: $color-dark-light;
+    background: $color-dark-light !important;
     border-radius: 50%;
   }
   &:checked,
   &.ng-valid-parse {
     &::before {
       @include transform(scale(0, 0));
-      border-color: $color-box-sizing;
-      border-width: $knob-border-width;
+      border-color: $color-box-sizing !important;
+      border-width: $knob-border-width !important;
     }
     &::after {
-      border: $knob-border-width solid $color-box-sizing;
-      background: $color-bg;
+      border: $knob-border-width solid $color-box-sizing !important;
+      background: $color-bg !important;
     }
   }
 }
@@ -198,8 +198,66 @@ slider, [slider] {
   }
 }
 
+// Toggle
+// ---------------------------------------
+.toggle {
+    display: none;
+    &, &::after, &::before, & *, & *::after, & *::before, & + .toggle-control {
+        box-sizing: border-box;
+        &::selection {
+            background: none;
+        }
+    }
+    + .toggle-control {
+        outline: 0;
+        top: 10px;
+        margin-bottom: 8px;
+        width: 52px;
+        position: relative;
+        cursor: pointer;
+        user-select: none;
+        padding: 3px;
+        @include transition(all 0.3s ease-in-out);
+        background: $color-bg;
+        border: $knob-border-width/2 solid $color-dark-lighter;
+        border-radius: 2em;
+        &::after, &::before {
+            position: relative;
+            display: block;
+            content:"";
+            width: $knob-size;
+            height: $knob-size;
+        }
+        &::after {
+            left: 0;
+            @include transition(all 0.3s ease-in-out);
+            background: $color-dark-light;
+            border-radius: 50%;
+        }
+        &::before {
+            display: none;
+        }
+    }
+    &:checked {
+        + .toggle-control {
+            border: $knob-border-width/2 solid $color-dark-lighter;
+            &::after {
+                left: 50%;
+                height: $knob-size;
+                width: $knob-size;
+                background: $color-bg;
+                border: $knob-border-width solid $color-content;
+            }
+        }
+    }
+}
+.toggle-text {
+    vertical-align: text-bottom;
+    margin-left: 5px;
+}
 
-// Generated Size Controls
+
+// Generated Size Change Animation (ng-animate)
 // ---------------------------------------
 .generated-direction {
   display: inline-block;
