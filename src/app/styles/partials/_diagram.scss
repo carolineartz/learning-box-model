@@ -24,7 +24,9 @@ $boxes: (content: $color-content,
 
 $sliders: content, padding, border, margin;
 
-
+$lg: new-breakpoint(min-width 1245px 7);
+$md: new-breakpoint(min-width 950px);
+$sm: new-breakpoint(min-width 790px 6);
 /*****************************************
 * DIAGRAM STYLES
 ******************************************/
@@ -95,7 +97,11 @@ background-image:url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53
   font-weight: 400;
   letter-spacing: 2px;
   font-size: 11px;
-  top: -12px;
+  top: -6px;
+  @include media($sm) {
+    top: -12px;
+  }
+
   left: 5px;
   position: relative;
   &#property-label-padding {
@@ -110,7 +116,10 @@ background-image:url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53
   &#property-label-content {
     color: darken($color-content, 20%);
     float: left;
+    top: -6px;
+    @include media($sm) {
     top: -8px;
+    }
   }
 }
 

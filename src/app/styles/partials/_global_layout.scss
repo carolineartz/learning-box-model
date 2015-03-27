@@ -31,30 +31,41 @@ main {
   @include outer-container;
 }
 
+$lg: new-breakpoint(min-width 1245px 7);
+$md: new-breakpoint(min-width 950px);
+$sm: new-breakpoint(min-width 790 6);
+// $shorter-sliders: new-breakpoint(min-width 950px);
+// $block-labels: new-breakpoint(max-width 950px);
+// $md-sm: new-breakpoint(max-width 790px 6);
+
 .box-model {
-  @include span-columns(7);
+  @include media($sm) {
+    @include span-columns(6);
+  }
+  @include media($md) {
+    @include span-columns(7);
+  }
   #content, #generated-size {
-    @include span-columns(4 of 7);
+    @include media($lg) {
+      @include span-columns(4 of 7);
+    }
   }
   #generated-size {
-    @include span-columns(3 of 7);
-    @include omega;
+    @include media($lg) {
+      @include span-columns(3 of 7);
+      @include omega;
+    }
   }
 }
 
 .controls {
-  @include span-columns(5);
-}
-
-.section {
-  padding: 2rem 0;
-  @include breakpoint(break-1) {
-    padding: 3rem 0;
+  @include media($sm) {
+    @include span-columns(6);
   }
-
-  @include breakpoint(break-2) {
-    padding: 4rem 0;
+  @include media($md) {
+    @include span-columns(5);
   }
 }
+
 
 

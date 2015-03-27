@@ -28,12 +28,13 @@ main
     div.control-set#content
       fieldset
         legend Dimensions
-        label width
-        slider(floor="0" ceiling="400" step="10" precision="1" ng-model="dimensions.width" highlight="left")
-        div.value {{dimensions.width}}px
-        label height
-        slider(floor="0" ceiling="400" step="10" precision="1" ng-model="dimensions.height" highlight="left")
-        div.value {{dimensions.height}}px
+        .sliders
+          label width
+          slider(floor="0" ceiling="400" step="10" precision="1" ng-model="dimensions.width" highlight="left")
+          div.value {{dimensions.width}}px
+          label height
+          slider(floor="0" ceiling="400" step="10" precision="1" ng-model="dimensions.height" highlight="left")
+          div.value {{dimensions.height}}px
     div.control-set#generated-size
       fieldset
         legend Generated Size
