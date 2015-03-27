@@ -1,12 +1,3 @@
-mixin article(title)
-  .article
-    .article-wrapper
-      h1= title
-      if block
-        block
-      else
-        p No content provide
-
 mixin controlset
   each attr in ["margin", "padding", "border"]
     div.control-set
